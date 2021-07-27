@@ -11,7 +11,7 @@ interface IUser extends Document {
 	address: string;
 	imageURL: string;
 	password: string;
-	// salt: string;
+	isAdmin: boolean;
 	isActive: boolean;
 	isVerified: boolean;
 	comparePassword(providedPassword: string): Promise<boolean>;
@@ -23,7 +23,7 @@ const userSchema: Schema = new Schema({
 	lastname: { type: String, required: true },
 	email: { type: String, required: true, unique: true},
 	password: { type: String, required: true },
-	// salt: { type: String, required: true },
+	isAdmin: { type: Boolean, default: false },
 	title: { type: String },
 	phoneNumber: { type: String },
 	address: { type: String },

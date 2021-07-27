@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/db';
 import morgan from 'morgan';
 import HealthCheck from './api/routes/healthCheck';
+import Company from './api/routes/company';
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //routes
 app.use(HealthCheck);
+app.use('/company', Company);
 
 app.listen(PORT, () => {
 	console.log(`Server listening on PORT: ${PORT}`);
